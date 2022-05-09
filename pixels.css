@@ -1,0 +1,21 @@
+*{box-sizing:border-box;margin:0;padding:0;font-family:sans-serif}
+html{scroll-behavior:smooth}
+.MenuBlock{width:300px;height:100%;float:left;text-align:center;}
+.MenuBlock2{width:300px;height:100%;float:right;text-align:center;}
+.PixelPlace{display:flex;flex-wrap:wrap;width:1300px; border:2px black solid;}
+ul,ol{list-style-type:none}
+.PixelPlace div{width:15px;height:15px}
+select{font-size:16px}
+option{padding:10px 0}
+.PixelPlace div:hover{border:1px dashed rgba(0,0,0,0.8);outline:none;text-decoration:none}
+@media screen and (max-width: 980px) {
+.MenuBlock2{display:none}
+.MenuBlock{width:100%}
+}
+button{margin-top:15px;width:100px;height:30px}
+button:hover{cursor:pointer}
+button:focus-visible{outline:none}
+button:focus-within{outline:none}
+button:focus{outline:none}
+:focus-visible{outline:none}
+div:focus-visible{outline:none}
