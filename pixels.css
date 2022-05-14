@@ -1,3 +1,4 @@
+/*Основной сжатый CSS, для чтения*/
 *{box-sizing:border-box;margin:0;padding:0;font-family:sans-serif}
 html{scroll-behavior:smooth}
 .MenuBlock{width:300px;height:100%;float:left;text-align:center;}
