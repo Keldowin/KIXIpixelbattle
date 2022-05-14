@@ -1,5 +1,8 @@
 <!DOCTYPE html>
 <html lang="ru">
+<!-- COPYRIGHT KELDOWIN -->
+<!-- COPYRIGHT KELDOWIN -->
+<!-- COPYRIGHT KELDOWIN -->
 <!-- Основной файл страницы, внутри JS, часть PHP кода -->
 <head>
     <meta charset="UTF-8">
