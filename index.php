@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="ru">
-
+<!-- Основной файл страницы, внутри JS, часть PHP кода -->
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -13,9 +13,11 @@
 <body>
     <?php
     require 'cfg.php';
+    // Проверка если 1 то кидаем на хаб (Тип закрыто)
     if($open == 1){
         header('Location: hub.php');
     }
+    // Находим игрока по айпи
     $q = 'SELECT `ip` FROM `users` WHERE `ip` = "' . $UserIP . '"';
     $res = mysqli_query($link, $q);
     $user = mysqli_fetch_all($res, MYSQLI_ASSOC);
@@ -85,9 +87,77 @@ if($player[0]['ban'] == 1){
     <!-- Снизу лагучая штука -->
 <main class="PixelPlace" id="result"></main>
 <script type="text/javascript">
+    // Основной код JS (Если не будет работать то напишите)
 var dlay = 300;
 var map = 1200;
-$(document).ready(function(){console.log("В консоли пишеться откладка пикселей"),console.log("Если ты хочешь как то улучшить KIXI, то напиши мне! - ")});var colorer="<?= $colorPlayer ?>";let timer;function pixely(t,e){timer||(console.log(t,e),$(function(){$.ajax({url:"PixelAdd.php?id="+t+"&color="+e,method:"GET",data:{test:"yes"},success:function(t){}})}),timer=setTimeout(()=>timer=clearTimeout(timer), dlay))}$(function(){!function t(){$.ajax({url:"pixelmap.php",method:"POST",data:{test:"yes"},success:function(t){$("#result").html(t)},complete:function(){setTimeout(t,map)}})}()}),$(function(){!function t(){$.ajax({url:"player.php",method:"POST",data:{test:"yes"},success:function(t){$("#clicknum").html(t)},complete:function(){setTimeout(t,map)}})}()}),$(function(){!function t(){$.ajax({url:"stat.php",method:"POST",data:{test:"yes"},success:function(t){$("#stat").html(t)},complete:function(){setTimeout(t,map)}})}()});
+$(document).ready(function() {
+    console.log("В консоли пишеться откладка пикселей");
+    console.log("Если ты хочешь как то улучшить KIXI, то напиши мне! - ");
+});
+var colorer = "<?= $colorPlayer ?>";
+let timer;
+
+function pixely(t, e) {
+    timer || (console.log(t, e), $(function() {
+        $.ajax({
+            url: "PixelAdd.php?id=" + t + "&color=" + e,
+            method: "GET",
+            data: {
+                test: "yes"
+            },
+            success: function(t) {}
+        })
+    }), timer = setTimeout(() => timer = clearTimeout(timer), dlay))
+}
+$(function() {
+    ! function t() {
+        $.ajax({
+            url: "pixelmap.php",
+            method: "POST",
+            data: {
+                test: "yes"
+            },
+            success: function(t) {
+                $("#result").html(t)
+            },
+            complete: function() {
+                setTimeout(t, map)
+            }
+        })
+    }()
+}), $(function() {
+    ! function t() {
+        $.ajax({
+            url: "player.php",
+            method: "POST",
+            data: {
+                test: "yes"
+            },
+            success: function(t) {
+                $("#clicknum").html(t)
+            },
+            complete: function() {
+                setTimeout(t, map)
+            }
+        })
+    }()
+}), $(function() {
+    ! function t() {
+        $.ajax({
+            url: "stat.php",
+            method: "POST",
+            data: {
+                test: "yes"
+            },
+            success: function(t) {
+                $("#stat").html(t)
+            },
+            complete: function() {
+                setTimeout(t, map)
+            }
+        })
+    }()
+});
 </script>
 </body>
 </html>
